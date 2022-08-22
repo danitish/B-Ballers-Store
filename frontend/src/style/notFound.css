@@ -1,0 +1,13 @@
+.notfound span {
+  font-size: 1.7rem;
+  margin-bottom: 10px;
+}
+
+.notfound p {
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.notfound .goBack {
+  font-size: 1.4rem;
+}

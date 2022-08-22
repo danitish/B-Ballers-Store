@@ -1,0 +1,17 @@
+.about p {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.about h1,
+.about h3 span {
+  text-decoration: underline;
+}
+
+.about h3 {
+  margin: 30px 0;
+}
+
+.teams {
+  margin: 40px 0;
+}

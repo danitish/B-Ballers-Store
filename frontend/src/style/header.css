@@ -1,0 +1,14 @@
+.cart-section {
+  position: relative;
+}
+.cart-num-items {
+  position: absolute;
+  top: -10px;
+  left: -18px;
+  background-color: #c9002c;
+  color: white;
+  border-radius: 50%;
+  font-size: 0.8em;
+  padding: 2px 5px;
+  text-align: center;
+}

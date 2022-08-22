@@ -1,0 +1,97 @@
+@local=http://localhost:5000/api
+@token1=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZGZjOTRlNjgxNzNlNGUzODRkYTNkOSIsIm5hbWUiOiJBZG1pbiIsImlhdCI6MTY1OTk0MzQzOSwiZXhwIjoxNjYwMDI5ODM5fQ.nRpyjO_nkF8KJI1BPNi3P0lV73pfR1AEbwlQMynsstU
+@token2=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZGZjOTRlNjgxNzNlNGUzODRkYTNkYSIsIm5hbWUiOiJKb2huIERvZSIsImlhdCI6MTY1OTk0MzQ5NywiZXhwIjoxNjYwMDI5ODk3fQ.x88IuwGlloXUqNQqojt8337poxPAXP5u14JUS1ClHdM
+
+// GET all products
+GET {{local}}/products
+
+###
+
+// GET product by ID
+GET {{local}}/products/62dfc94e68173e4e384da3e2
+
+###
+
+// User register
+POST {{local}}/users
+Content-Type: application/json
+
+{   
+    "email" : "danitishenko23@gmail.com",
+    "password" : "123456",
+    "name" : "dani"
+}
+
+
+###
+
+// Sign in user
+POST {{local}}/users/login
+Content-Type: application/json
+
+{
+    "email" : "danitishenko23@gmail.com",
+    "password": "Bb1234!1234"
+}
+
+###
+
+// Get user profile
+GET {{local}}/users/profile
+authorization:Bearer {{token2}}
+
+###
+
+// Update user profile
+PUT {{local}}/users/profile
+authorization: Bearer {{token2}}
+Content-Type: application/json
+
+{
+    "email" : "danidani@admin.com",
+    "name" : "danidanidani"
+}
+
+###
+
+// Get order by id
+GET {{local}}/orders/62e8f79687ccb88addaa5ab2
+authorization: Bearer {{token1}} 
+
+###
+
+// Get my orders
+GET {{local}}/orders/myorders
+authorization: Bearer {{token1}} 
+
+###
+
+// Get all users (Admin Only)
+GET {{local}}/users
+authorization:Bearer {{token1}}
+
+###
+
+// Delete a user (Admin Only)
+DELETE {{local}}/users/62e7a8ce3934a44a5cc50cd8
+authorization: Bearer {{token1}}
+
+###
+
+// Send password reset email
+POST {{local}}/password-reset
+Content-Type: application/json
+
+{
+    "email" : "danitishenko23@gmail.com"
+}
+
+###
+
+// Change password
+POST {{local}}/password-reset/62fdf8e12f0bd0e9db38f0f0/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZmRmOGUxMmYwYmQwZTlkYjM4ZjBmMCIsImlhdCI6MTY2MDgxNDcxNn0.fADbzevi3Kf9gcgPrL48cxbpep3vnltfhKqb67sPIAw
+Content-Type: application/json
+
+{
+    "password" : "Bb1234!1234"
+}

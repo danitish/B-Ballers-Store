@@ -1,0 +1,17 @@
+footer p {
+  letter-spacing: 3px;
+  font-weight: 600;
+}
+
+footer span {
+  line-height: 2;
+}
+
+footer i,
+footer a {
+  color: white;
+}
+
+footer a:hover {
+  color: aliceblue;
+}
