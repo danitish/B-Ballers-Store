@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://b-ballers.onrender.com/api";
+axios.defaults.baseURL = "https://b-ballers.onrender.com";
 axios.defaults.headers.post["Content-Type"] = "application/json";
 axios.defaults.headers.put["Content-Type"] = "application/json";
 

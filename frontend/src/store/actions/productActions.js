@@ -34,7 +34,7 @@ export const listProducts =
       dispatch({ type: PRODUCT_LIST_REQUEST });
 
       const { data } = await httpService.get(
-        `/products?keyword=${keyword}&pageNumber=${pageNumber}`
+        `/api/products?keyword=${keyword}&pageNumber=${pageNumber}`
       );
 
       dispatch({
@@ -56,7 +56,7 @@ export const listProductDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_DETAIL_REQUEST });
 
-    const { data } = await httpService.get(`/products/${id}`);
+    const { data } = await httpService.get(`/api/products/${id}`);
 
     dispatch({
       type: PRODUCT_DETAIL_SUCCESS,
@@ -89,7 +89,7 @@ export const deleteProduct = (id) => async (dispatch, getState) => {
       },
     };
 
-    await httpService.delete(`/products/${id}`, config);
+    await httpService.delete(`/api/products/${id}`, config);
 
     dispatch({
       type: PRODUCT_DELETE_SUCCESS,
@@ -121,7 +121,7 @@ export const createProduct = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await httpService.post("/products", {}, config);
+    const { data } = await httpService.post("/api/products", {}, config);
 
     dispatch({
       type: PRODUCT_CREATE_SUCCESS,
@@ -155,7 +155,7 @@ export const updateProduct = (product) => async (dispatch, getState) => {
     };
 
     const { data } = await httpService.put(
-      `/products/${product._id}`,
+      `/api/products/${product._id}`,
       product,
       config
     );
@@ -192,7 +192,7 @@ export const createProductReview =
         },
       };
 
-      await httpService.post(`/products/${productId}/reviews`, review, config);
+      await httpService.post(`/api/products/${productId}/reviews`, review, config);
 
       dispatch({
         type: PRODUCT_CREATE_REVIEW_SUCCESS,
@@ -212,7 +212,7 @@ export const listTopProducts = () => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_TOP_REQUEST });
 
-    const { data } = await httpService.get(`/products/top`);
+    const { data } = await httpService.get(`/api/products/top`);
 
     dispatch({
       type: PRODUCT_TOP_SUCCESS,
@@ -233,7 +233,7 @@ export const teamProducts = (team) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_TEAM_REQUEST });
 
-    const { data } = await httpService.get(`/products/teams/${team}`);
+    const { data } = await httpService.get(`/api/products/teams/${team}`);
 
     dispatch({
       type: PRODUCT_TEAM_SUCCESS,

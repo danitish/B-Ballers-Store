@@ -40,7 +40,7 @@ export const register =
     try {
       dispatch({ type: USER_REGISTER_REQUEST });
 
-      const { data } = await httpService.post("/users", {
+      const { data } = await httpService.post("/api/users", {
         name,
         email,
         password,
@@ -67,7 +67,7 @@ export const login =
     try {
       dispatch({ type: USER_LOGIN_REQUEST });
 
-      const { data } = await httpService.post("/users/login", {
+      const { data } = await httpService.post("/api/users/login", {
         email,
         password,
       });
@@ -113,7 +113,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await httpService.get(`/users/${id}`, config);
+    const { data } = await httpService.get(`/api/users/${id}`, config);
 
     dispatch({
       type: USER_DETAILS_SUCCESS,
@@ -146,7 +146,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await httpService.put("/users/profile", user, config);
+    const { data } = await httpService.put("/api/users/profile", user, config);
 
     dispatch({
       type: USER_UPDATE_PROFILE_SUCCESS,
@@ -186,7 +186,7 @@ export const usersList = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await httpService.get("/users", config);
+    const { data } = await httpService.get("/api/users", config);
 
     dispatch({
       type: USER_LIST_SUCCESS,
@@ -219,7 +219,7 @@ export const deleteUser = (id) => async (dispatch, getState) => {
       },
     };
 
-    await httpService.delete(`/users/${id}`, config);
+    await httpService.delete(`/api/users/${id}`, config);
 
     dispatch({
       type: USER_DELETE_SUCCESS,
@@ -251,7 +251,7 @@ export const updateUser = (user) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await httpService.put(`/users/${user._id}`, user, config);
+    const { data } = await httpService.put(`/api/users/${user._id}`, user, config);
 
     dispatch({
       type: USER_UPDATE_SUCCESS,
@@ -276,7 +276,7 @@ export const resetPasswordEmail = (email) => async (dispatch) => {
   try {
     dispatch({ type: USER_PASSWORD_RESET_EMAIL_REQUEST });
 
-    await httpService.post("/password-reset", email);
+    await httpService.post("/api/password-reset", email);
 
     dispatch({
       type: USER_PASSWORD_RESET_EMAIL_SUCCESS,
@@ -296,7 +296,7 @@ export const resetPassword = (password, userId, token) => async (dispatch) => {
   try {
     dispatch({ type: USER_PASSWORD_RESET_REQUEST });
 
-    await httpService.post(`/password-reset/${userId}/${token}`, password);
+    await httpService.post(`/api/password-reset/${userId}/${token}`, password);
 
     dispatch({
       type: USER_PASSWORD_RESET_SUCCESS,
