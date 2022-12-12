@@ -6,7 +6,7 @@ eCommerce project utilizing MERN stack and Redux.
 Website
 ============================
 
-https://b-ballers.herokuapp.com/
+https://b-ballers.onrender.com/
 
 Features
 ============================
